@@ -36,6 +36,20 @@ SFCC Geolocated Inventory for PWA Kit is a package that implements the feature o
 
     **Note:** If you require more details on the session bridging, you can refer to the Salesforce Phased Headless Rollouts [documentation guide](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/phased-headless-rollouts.html)
 
+4. SFCC Geolocated Inventory for PWA Kit requires that you set and properly configure an Account Manager Client ID. In order to do this, go through the following steps:
+
+    4.1. Go to your Account Manager [account](https://account.demandware.com/dw/account/Home) and in the **API Client** section click on the **Add API Client** button. Please, make sure that you have the permissions to perform these actions, if not contact your account administrator
+
+    4.2. Once you are in the API Client creation view, provide a name an a password to your client ID (make sure you do not forget this password), and associate the client ID with your organization in *Organizations* field
+
+    4.3. In the *Default Scopes* field put the following values: *mail, roles, tenantFilter, profile, openId*. The values for this field are not comma separated, they MUST be entered in a column distribution, this is one under the other
+
+    4.4. In the *Allowed Scopes* field put the following values: *sfcc.shopper-baskets-orders.rw, sfcc.shopper-myaccount.baskets, sfcc.shopper-baskets-orders, sfcc.shopper-categories, sfcc.shopper-customers.login, sfcc.shopper-customers.register, sfcc.shopper-gift-certificates, sfcc.shopper-myaccount.rw, sfcc.shopper-product-search, sfcc.shopper-productlists, sfcc.shopper-products, sfcc.shopper-promotions, sfcc.shopper-stores, sfcc.shopper-myaccount.baskets.rw, sfcc.catalogs, sfcc.customerlists.rw*. Just like the values in *Default Scopes*, you must enter them one under the other in a column distribution
+
+    4.5. In the *Token Endpoint Auth Method* select **private_key_jwt** and make sure the field *Access Token Format* has the value **JWT**. Then click on Save and your client ID should be created
+
+    4.6. Once the client ID is created go to your sandbox and under *Administration > Site Development > Open Commerce API Settings*, select the type **Shop** and grant access to all endpoints for your AM Client ID using the JSON format specified in this [file](./AmClientIdSettingsFormat.json). Save your changes and your AM Client ID should be good to be used in SFCC Geolocated Inventory package
+
 ## Installation
 
 **Note:** The installation steps described in this section are **ONLY** valid for a fresh installation of the PWA Kit, if you need to integrate this package with your custom PWA Kit project, contact the Appspring support team in order to get specific instructions on how to achieve this.
@@ -54,7 +68,9 @@ SFCC Geolocated Inventory for PWA Kit package offers two things: the modificatio
 	```
     This new proxy configuration is needed for the calls to the SFRA controller that the package provides.
 
-3. SFRA controllers are also needed for the integration package to work. The controllers are inside *sfra-cartridges/apps_user_geolocation* path. For all the details on how to install *apps_user_geolocation*, please refer to the [cartridge README](./sfra-cartridges/README.md)
+3. Go to *app/contexts/index.js* and in the line 236 replace '<Your-AM-Client-ID>' with the actual value of your Account Manager Client ID
+
+4. SFRA controllers are also needed for the integration package to work. The controllers are inside *sfra-cartridges/apps_user_geolocation* path. For all the details on how to install *apps_user_geolocation*, please refer to the [cartridge README](./sfra-cartridges/README.md)
 
 ## Usage
 
