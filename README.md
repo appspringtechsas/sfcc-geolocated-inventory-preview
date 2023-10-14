@@ -1,6 +1,15 @@
 # Salesforce Commerce Cloud (SFCC) Geolocated Inventory for PWA Kit
 
-SFCC Geolocated Inventory for PWA Kit is a package that implements the feature of inventory based on geolocated stores to Salesforce Commerce Cloud Composable Storefront. 
+**Note:** This repository is a preview of the SFCC Geolocated Inventory for PWA Kit. The purpose of this repository is to allow future customers to see the file structure of the package and to access the README and see how the package works and what features provides. The available files in this preview are:
+
+- [_app-config](./sfcc-geolocated-inventory-integration/app/components/_app-config/index.jsx)
+- [use-product](./sfcc-geolocated-inventory-integration/app/hooks/use-product.js)
+- [product-detail](./sfcc-geolocated-inventory-integration/app/pages/product-detail/index.jsx)
+- [stores-menu theme](./sfcc-geolocated-inventory-integration/app/theme/components/project/stores-menu.js)
+- [routes](./sfcc-geolocated-inventory-integration/app/routes.jsx)
+- [UserLocation controller](./sfra-cartridges/cartridges/apps_user_geolocation/cartridge/controllers/UserLocation.js)
+
+SFCC Geolocated Inventory for PWA Kit is a package that implements the feature of inventory based on geolocated stores to Salesforce Commerce Cloud Composable Storefront.
 
 ## Prerequisites
 
